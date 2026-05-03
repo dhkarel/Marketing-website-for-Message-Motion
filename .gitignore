@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local dev tools
+.claude/
+
+# Internal development files (not part of the live site)
+palette-preview.html
