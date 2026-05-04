@@ -112,7 +112,7 @@ body {
 }
 
 section {
-  padding: 120px 0;
+  padding: 96px 0;
   position: relative;
 }
 section + section {
@@ -289,7 +289,7 @@ section + section {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 140px 0 130px;
+  padding: 110px 0 100px;
   position: relative;
 }
 .hero::before {
@@ -740,7 +740,7 @@ section.method + section { border-top: none; }
 .contact {
   background: var(--navy);
   color: var(--cream);
-  padding: 140px 0;
+  padding: 110px 0;
 }
 .contact .eyebrow { color: var(--gold); }
 .contact .eyebrow::before { background: var(--gold); }
