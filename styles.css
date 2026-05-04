@@ -232,8 +232,17 @@ section + section {
   border-bottom: 1.5px solid var(--gold);
   padding-bottom: 3px;
   transition: color 0.2s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .btn-text:hover { color: var(--navy); }
+.btn-text .ico {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+}
 
 /* ---------- Nav ---------- */
 .nav {
