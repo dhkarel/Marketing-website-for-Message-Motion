@@ -722,11 +722,11 @@ section.method + section { border-top: none; }
 }
 .quote-card blockquote p {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   font-size: 16px;
-  line-height: 1.55;
-  color: var(--navy);
+  line-height: 1.6;
+  color: rgba(15, 42, 74, 0.82);
   margin: 0;
   letter-spacing: -0.005em;
 }
