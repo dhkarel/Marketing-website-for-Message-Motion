@@ -20,7 +20,7 @@
   --cream-warm: #F2ECDF;
 
   /* Type */
-  --serif:  'Fraunces', 'Times New Roman', serif;
+  --serif:  'Cormorant Garamond', 'Times New Roman', serif;
   --sans:   'Inter', system-ui, -apple-system, sans-serif;
 
   /* Layout */
@@ -143,7 +143,7 @@ section + section {
 .hero-headline,
 .section-headline {
   font-family: var(--serif);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--navy);
   letter-spacing: -0.02em;
   margin: 0 0 28px;
@@ -152,18 +152,18 @@ section + section {
 .section-headline em {
   color: var(--burgundy);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .hero-headline {
-  font-size: clamp(44px, 6.2vw, 84px);
+  font-size: clamp(48px, 6.8vw, 92px);
   line-height: 1.02;
   max-width: 16ch;
 }
 .section-headline {
-  font-size: clamp(26px, 2.6vw, 36px);
+  font-size: clamp(28px, 2.9vw, 40px);
   line-height: 1.18;
-  max-width: 26ch;
+  max-width: 32ch;
 }
 
 .lede {
@@ -312,9 +312,9 @@ section + section {
 }
 .hero-sub {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(20px, 2vw, 26px);
-  line-height: 1.5;
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.45;
   max-width: 56ch;
   margin: 0;
   color: var(--ink);
@@ -325,8 +325,8 @@ section + section {
   background: var(--cream-warm);
 }
 .pov .section-headline {
-  font-size: clamp(28px, 3vw, 42px);
-  max-width: 24ch;
+  font-size: clamp(32px, 3.4vw, 48px);
+  max-width: 28ch;
 }
 
 /* ---------- How we help ---------- */
@@ -354,8 +354,8 @@ section.method + section { border-top: none; }
 }
 .section-lede {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 400;
+  font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.5;
   margin: 20px 0 0;
   max-width: 56ch;
@@ -393,9 +393,9 @@ section.method + section { border-top: none; }
 }
 .method-title {
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(22px, 2vw, 28px);
-  line-height: 1.2;
+  font-weight: 500;
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1.18;
   color: var(--cream);
   margin: 0;
   letter-spacing: -0.01em;
@@ -429,8 +429,8 @@ section.method + section { border-top: none; }
 }
 .who-stage {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 26px;
+  font-weight: 600;
+  font-size: 28px;
   color: var(--navy);
   margin: 0 0 4px;
   letter-spacing: -0.01em;
@@ -544,8 +544,8 @@ section.method + section { border-top: none; }
 }
 .engage-title {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(22px, 1.7vw, 26px);
+  font-weight: 600;
+  font-size: clamp(24px, 1.9vw, 30px);
   color: var(--navy);
   margin: 0;
   line-height: 1.2;
@@ -587,7 +587,7 @@ section.method + section { border-top: none; }
 
 /* ---------- About ---------- */
 .about-headline {
-  max-width: 24ch;
+  max-width: 34ch;
 }
 .about-grid {
   display: grid;
@@ -613,8 +613,8 @@ section.method + section { border-top: none; }
 }
 .about-name {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   color: var(--navy);
   letter-spacing: -0.005em;
 }
@@ -733,10 +733,10 @@ section.method + section { border-top: none; }
 }
 .quote-card blockquote p {
   font-family: var(--serif);
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.55;
   color: rgba(15, 42, 74, 0.82);
   margin: 0;
   letter-spacing: -0.005em;
@@ -842,8 +842,8 @@ section.method + section { border-top: none; }
 }
 .footer-brand {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   color: var(--cream);
   letter-spacing: -0.005em;
 }
