@@ -302,7 +302,7 @@ section + section {
 .hero {
   padding: 110px 0 100px;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 .hero::before {
   content: '';
@@ -310,26 +310,19 @@ section + section {
   top: 0; left: var(--gutter); right: var(--gutter);
   height: 2px;
   background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 120px, transparent 120px);
-  z-index: 2;
 }
 .hero::after {
   content: '';
   position: absolute;
-  top: 0; bottom: -220px; right: 0;
+  top: 0; bottom: 0; right: 0;
   width: min(620px, 50%);
   background-image: url('assets/ripple-hero.png');
   background-repeat: no-repeat;
-  background-position: right top;
-  background-size: auto 100%;
+  background-position: right center;
+  background-size: cover;
   opacity: 0.22;
-  -webkit-mask-image:
-    linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%),
-    linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 130px);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%),
-    linear-gradient(to top, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 130px);
-          mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
   pointer-events: none;
   z-index: 0;
 }
