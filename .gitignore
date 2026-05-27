@@ -7,3 +7,6 @@
 # Internal development files (not part of the live site)
 palette-preview.html
 font-preview.html
+
+# Dependencies
+node_modules/
