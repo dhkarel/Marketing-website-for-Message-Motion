@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Field Notes &mdash; Message &amp; Motion</title>
+  <meta name="description" content="Notes from the work &mdash; writing, observations, and lessons from B2B GTM projects." />
+  <meta name="theme-color" content="#0F2A4A" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=38" />
+  <style>
+    /* ==== Field Notes page ==== */
+
+    .fn-hero {
+      padding: 100px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .fn-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: var(--gutter); right: var(--gutter);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 120px, transparent 120px);
+      z-index: 2;
+    }
+    .fn-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; right: 0;
+      width: min(620px, 50%);
+      background-image: url('assets/ripple-hero.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: cover;
+      opacity: 0.22;
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+              mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .fn-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .fn-hero-headline {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(44px, 5.6vw, 76px);
+      line-height: 1.05;
+      color: var(--navy);
+      margin: 12px 0 24px 0;
+      letter-spacing: -0.01em;
+    }
+    .fn-hero-headline em {
+      font-style: italic;
+      color: var(--burgundy);
+    }
+    .fn-hero-lede {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(20px, 2vw, 26px);
+      line-height: 1.45;
+      max-width: 56ch;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    /* ==== Article grid ==== */
+
+    .fn-grid-section {
+      padding: 40px 0 140px;
+      background: var(--cream);
+    }
+    .fn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px 56px;
+    }
+
+    .field-note a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .field-note-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--cream-warm);
+      margin-bottom: 26px;
+      position: relative;
+      transition: transform 0.4s var(--ease);
+    }
+    .field-note-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+    .field-note:hover .field-note-image img {
+      transform: scale(1.03);
+    }
+    /* Placeholder treatment when no real image is available */
+    .field-note-image.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .field-note-image.placeholder::before {
+      content: attr(data-title);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(15, 42, 74, 0.28);
+      text-align: center;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      max-width: 24ch;
+    }
+    .field-note-image.placeholder::after {
+      content: 'placeholder';
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(15, 42, 74, 0.35);
+    }
+    /* Typographic treatment for image-less articles */
+    .field-note-image.typographic {
+      background: var(--cream-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      border-top: 2px solid var(--gold);
+    }
+    .field-note-image.typographic .typo-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(24px, 2.2vw, 30px);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      max-width: 22ch;
+    }
+    .field-note-date {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin: 0 0 12px 0;
+    }
+    .field-note-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(26px, 2.4vw, 32px);
+      line-height: 1.2;
+      color: var(--navy);
+      margin: 0 0 16px 0;
+      letter-spacing: -0.005em;
+      transition: color 0.2s var(--ease);
+    }
+    .field-note:hover .field-note-title {
+      color: var(--burgundy);
+    }
+    .field-note-summary {
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0 0 20px 0;
+      opacity: 0.85;
+    }
+    .field-note-link {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--burgundy);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: color 0.2s var(--ease);
+    }
+    .field-note:hover .field-note-link {
+      color: var(--navy);
+    }
+
+    @media (max-width: 880px) {
+      .fn-hero { padding: 100px 0 40px; }
+      .fn-hero::after { display: none; }
+      .fn-grid-section { padding: 40px 0 80px; }
+      .fn-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="Message and Motion home">
+      <img src="assets/logomain_transparent.png" alt="Message &amp; Motion" />
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#approach">Approach</a>
+      <a href="/#method">Method</a>
+      <a href="/#engage">Engage</a>
+      <a href="/#about">About</a>
+      <a href="/field-notes" class="nav-fn">Field Notes</a>
+      <a href="/#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- FIELD NOTES HERO -->
+  <section class="fn-hero">
+    <div class="container">
+      <p class="eyebrow">Field Notes</p>
+      <h1 class="fn-hero-headline">Notes from <em>the work</em>.</h1>
+      <p class="fn-hero-lede">Writing, observations, and lessons from years leading B2B marketing teams, and the projects I take on now. Category creation, messaging, GTM strategy, org building, and the operator&rsquo;s take on the current AI moment.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW TO ADD A NEW FIELD NOTE
+       ============================================================
+       1. Save the article's LinkedIn image to /assets/field-notes/
+          Use a descriptive filename like "12-your-slug.png"
+       2. Copy the FIRST <article class="field-note"> block below
+          and paste it just below "ADD NEW POSTS ABOVE THIS LINE"
+          (newest article should be first in the grid)
+       3. Fill in 5 things in the pasted block:
+            a. href=""                            -> LinkedIn URL
+            b. <img src=""  alt="">               -> image path + title
+            c. <p class="field-note-date">        -> "Mon YYYY · X min read"
+            d. <h3 class="field-note-title">      -> article title
+            e. <p class="field-note-summary">     -> 1-3 sentence summary
+       4. Commit ("Add new field note: [title]"). Vercel auto-deploys.
+
+       Image-less articles: use <div class="field-note-image typographic">
+       with an inner <span class="typo-quote">"pull quote"</span> instead
+       of an <img> (see the last article on this page for an example).
+       ============================================================ -->
+
+  <!-- ARTICLE GRID -->
+  <section class="fn-grid-section">
+    <div class="container">
+      <div class="fn-grid">
+
+        <!-- ADD NEW POSTS ABOVE THIS LINE (paste above the marker, just below the fn-grid opening div) -->
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/how-we-built-category-restaurant-opsx-story-david-karel-q6z2e/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/01-restaurant-opsx.png" alt="How We Built a Category: The Restaurant OpsX Story" /></div>
+            <p class="field-note-date">Jul 2026 &middot; 9 min read</p>
+            <h3 class="field-note-title">How We Built a Category: The Restaurant OpsX Story</h3>
+            <p class="field-note-summary">Category design gets talked about in the abstract a lot. So instead of theory, a story I lived: how we built a category called &ldquo;restaurant operations execution&rdquo; at a company called Zenput, over about four years. What it took. How we knew it was working. And the twist at the end, when the category we&rsquo;d built got too small for the company we&rsquo;d become.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/building-high-performing-gtm-starts-words-david-karel-qzfye/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/02-gtm-words.png" alt="Building a High-Performing GTM Starts with the Words" /></div>
+            <p class="field-note-date">Jun 2026 &middot; 5 min read</p>
+            <h3 class="field-note-title">Building a High-Performing GTM Starts with the Words</h3>
+            <p class="field-note-summary">I recently spent a morning with a group of early-stage founders in Jackson Square Ventures&rsquo; 2026 Launchpad cohort, leading a working session on messaging and category development. I packaged up the material for that audience, but almost none of it is specific to early-stage founders. Underneath the channels, the programs, the tooling, and the dashboards, building a high-performing GTM engine comes down to the words.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/liberal-arts-marketer-walks-codebase-david-karel-imyte/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/03-liberal-arts-codebase.png" alt="A Liberal Arts Marketer Walks Into a Codebase" /></div>
+            <p class="field-note-date">May 2026 &middot; 8 min read</p>
+            <h3 class="field-note-title">A Liberal Arts Marketer Walks Into a Codebase</h3>
+            <p class="field-note-summary">I&rsquo;m a marketer. I&rsquo;ve spent a career building categories, teams, and repeatable B2B GTM engines. I also have a liberal arts background. Until earlier this month, I had never written a line of production code in my life. Then I built and launched my new firm&rsquo;s website in a weekend.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/building-ai-marketing-org-playbook-progress-david-karel-w6mce/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/04-ai-marketing-org.png" alt="Building the AI Marketing Org: A Playbook in Progress" /></div>
+            <p class="field-note-date">Apr 2026 &middot; 6 min read</p>
+            <h3 class="field-note-title">Building the AI Marketing Org: A Playbook in Progress</h3>
+            <p class="field-note-summary">In the first piece of this series, I shared my honest take on what AI actually changes in the marketing org, and what it doesn&rsquo;t. Role by role, where I&rsquo;d be cautious about compressing headcount, and why product marketing may be the biggest opportunity AI presents to any function. Here I take on the harder question: how do you actually approach this?</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/rebuilding-marketing-org-ai-what-we-know-dont-yet-david-karel-vmjbe/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/05-rebuilding-marketing-org.png" alt="Rebuilding the Marketing Org for AI" /></div>
+            <p class="field-note-date">Apr 2026 &middot; 5 min read</p>
+            <h3 class="field-note-title">Rebuilding the Marketing Org for AI: What We Know, and What We Don&rsquo;t (Yet)</h3>
+            <p class="field-note-summary">Every marketing leader I know is feeling the pressure right now to have a clear answer for how AI changes their org. Honestly, I&rsquo;m not sure the marketing org has fundamentally changed yet. We&rsquo;re at the very front end of it, with a lot of confident prescription running ahead of the evidence. Here&rsquo;s what I do think we know, role by role.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/ai-accelerates-everything-except-how-long-takes-your-narrative-karel-jc7yf/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/06-narrative-instability.png" alt="AI Accelerates Everything. Except How Long It Takes Your Narrative to Stick." /></div>
+            <p class="field-note-date">Apr 2026 &middot; 4 min read</p>
+            <h3 class="field-note-title">AI Accelerates Everything. Except How Long It Takes Your Narrative to Stick.</h3>
+            <p class="field-note-summary">In my last post, I talked about the first GTM bottleneck AI-era velocity is creating: the market&rsquo;s ability to absorb what you&rsquo;re shipping. There&rsquo;s a second bottleneck that&rsquo;s more insidious, because it sneaks up on you. It&rsquo;s not about how much you&rsquo;re launching. It&rsquo;s about what happens to your story in the process.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/ai-lets-your-product-team-ship-much-faster-can-buyers-david-karel-doyee/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/07-cognitive-bottleneck.png" alt="AI Lets Your Product Team Ship (Much) Faster. Can Buyers Keep Up?" /></div>
+            <p class="field-note-date">Apr 2026 &middot; 5 min read</p>
+            <h3 class="field-note-title">AI Lets Your Product Team Ship (Much) Faster. Can Buyers Keep Up?</h3>
+            <p class="field-note-summary">Something big is happening on the product side of software companies right now, and I don&rsquo;t think the GTM implications have fully sunk in yet. AI has removed the ceiling on how fast a team can ship. But the bottleneck coming has nothing to do with your dev team&rsquo;s capacity. It has to do with the human brain.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/old-b2b-marketing-tricks-arent-working-we-need-new-ones-david-karel-tdmve/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/08-b2b-wizard.jpeg" alt="The Old B2B Marketing Tricks Aren't Working; We Need New Ones" /></div>
+            <p class="field-note-date">Feb 2024 &middot; 9 min read</p>
+            <h3 class="field-note-title">The Old B2B Marketing Tricks Aren&rsquo;t Working; We Need New Ones</h3>
+            <p class="field-note-summary">Take a time machine back to 2010 (when I took on my first head of marketing role) and you&rsquo;d experience a B2B marketing renaissance. The tools and tactics that felt like leaps then, like marketing automation, ABM, and content marketing, have quietly become blunt instruments. Six new tricks to help your team pull away from the pack still swinging the old ones.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/high-impact-marketing-all-8020-rule-david-karel-djtmc/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/09-80-20-rule.jpeg" alt="High impact marketing is all about the 80/20 rule" /></div>
+            <p class="field-note-date">Jan 2024 &middot; 4 min read</p>
+            <h3 class="field-note-title">High impact marketing is all about the 80/20 rule</h3>
+            <p class="field-note-summary">Any of this sound familiar from a recent marketing planning session? &ldquo;Let&rsquo;s launch a podcast!&rdquo; &ldquo;Time to formalize a customer referral program!&rdquo; &ldquo;We haven&rsquo;t been paying enough attention to SEO.&rdquo; Ambitious teams keep adding programs, and inevitably dilute the ones that actually work. The case for the 80/20 rule in your marketing mix.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/my-marketing-leadership-plays-pay-david-karel/" target="_blank" rel="noopener">
+            <div class="field-note-image"><img src="assets/field-notes/10-plays-that-pay.jpeg" alt="My Marketing Leadership Plays that Pay" /></div>
+            <p class="field-note-date">Jul 2023 &middot; 8 min read</p>
+            <h3 class="field-note-title">My Marketing Leadership Plays that Pay</h3>
+            <p class="field-note-summary">Fifteen years leading marketing teams, and I&rsquo;ve noticed a set of plays I keep running, regardless of company size, stage, or environment. Some are obvious (invest in your message). Some are counterintuitive (don&rsquo;t act your age). All of them have held up.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+        <article class="field-note">
+          <a href="https://www.linkedin.com/pulse/charting-last-mile-top-marketing-job-david-karel/" target="_blank" rel="noopener">
+            <div class="field-note-image typographic">
+              <span class="typo-quote">&ldquo;If you want it, take the leap.&rdquo;</span>
+            </div>
+            <p class="field-note-date">Apr 2022 &middot; 4 min read</p>
+            <h3 class="field-note-title">Charting the Last Mile into the Top Marketing Job</h3>
+            <p class="field-note-summary">I love mentoring marketers. The question I get most often from those with some years under their belt: &ldquo;How do I know if I&rsquo;m ready for the head of marketing role?&rdquo; Based on my own journey, and watching the paths of others I&rsquo;ve had the chance to influence, here&rsquo;s the map I&rsquo;d hand you for the last mile.</p>
+            <span class="field-note-link">Read on LinkedIn &rarr;</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">Message &amp; Motion</div>
+    <div class="footer-meta">
+      <span>&copy; 2026 Message &amp; Motion</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

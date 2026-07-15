@@ -916,7 +916,7 @@ section.method + section { border-top: none; }
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
   }
   .nav-links { gap: 20px; }
-  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links a:not(.nav-cta):not(.nav-fn) { display: none; }
   .method-row { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
   .method-title { max-width: none; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
