@@ -20,6 +20,16 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
+    /* ==== Nav: matches the homepage (labels never wrap; shorter button label on phones) ==== */
+    .nav-links a { white-space: nowrap; }
+    .lbl-short { display: none; }
+    @media (max-width: 520px) {
+      .lbl-full { display: none; }
+      .lbl-short { display: inline; }
+      .nav-links { gap: 16px; }
+      .nav-cta { padding: 9px 14px; }
+    }
+
     /* ==== Field Notes page ==== */
 
     .fn-hero {
@@ -223,12 +233,12 @@
       <img src="assets/logomain_transparent.png" alt="Message &amp; Motion" />
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="/#approach">Approach</a>
-      <a href="/#method">Method</a>
-      <a href="/#engage">Engage</a>
+      <a href="/#who">Who I help</a>
+      <a href="/#method">How I work</a>
+      <a href="/#engage">Ways to work</a>
       <a href="/#about">About</a>
       <a href="/field-notes" class="nav-fn">Field Notes</a>
-      <a href="/#contact" class="nav-cta">Contact</a>
+      <a href="/#contact" class="nav-cta"><span class="lbl-full">Book an intro call</span><span class="lbl-short">Book a call</span></a>
     </nav>
   </div>
 </header>
@@ -240,7 +250,7 @@
     <div class="container">
       <p class="eyebrow">Field Notes</p>
       <h1 class="fn-hero-headline">Notes from <em>the work</em>.</h1>
-      <p class="fn-hero-lede">Writing, observations, and lessons from years leading B2B marketing teams, and the projects I take on now. Category creation, messaging, GTM strategy, org building, and the operator&rsquo;s take on the current AI moment.</p>
+      <p class="fn-hero-lede">Writing, observations, and lessons from two decades leading B2B marketing teams, and from the companies I work with now. Category creation, GTM strategy, messaging, org building, and an operator&rsquo;s take on the AI moment.</p>
     </div>
   </section>
 

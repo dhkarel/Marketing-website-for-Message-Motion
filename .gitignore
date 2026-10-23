@@ -10,3 +10,7 @@ font-preview.html
 
 # Dependencies
 node_modules/
+
+# Phase-two positioning work — internal strategy, client rates and deal values.
+# Must never be pushed: this repo is PUBLIC.
+phase-two/

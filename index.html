@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Message &amp; Motion — The words that move your GTM</title>
-  <meta name="description" content="We help B2B software companies sharpen their positioning, clarify their story, and activate it across the moments where buyers meet your brand and where sales teams need it most." />
-  <meta property="og:title" content="Message & Motion — The words that move your GTM" />
-  <meta property="og:description" content="Positioning, messaging, and activation for B2B software companies." />
+  <title>Message &amp; Motion | Marketing leadership that moves your GTM</title>
+  <meta name="description" content="I start with your story, then build the go-to-market engine around it. You get the strategy and hands-on execution of a CMO with three exits." />
+  <meta property="og:title" content="Message &amp; Motion | Marketing leadership that moves your GTM" />
+  <meta property="og:description" content="Fractional CMO and advisor for B2B software companies. Strategy and hands-on execution from a CMO with three exits." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://messageandmotion.com/" />
   <meta name="theme-color" content="#0F2A4A" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=38" />
+  <link rel="stylesheet" href="/styles.css?v=38" />
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     window.va('beforeSend', function (event) {
@@ -23,245 +23,282 @@
     });
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    /* ===== Page-specific layout (phase two, Oct 2026) ===== */
+
+    /* Who I work with: 4 situation cards as a 2x2 grid (live grid is 3-up for 3 stage cards) */
+    .who { background: var(--cream-warm); }
+    .who-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .who-support {
+      font-family: var(--serif); font-size: clamp(20px, 1.7vw, 24px);
+      line-height: 1.5; color: var(--ink-80); margin: 20px 0 0; max-width: 56ch;
+    }
+    .who-stage { font-size: 26px; margin-bottom: 14px; }
+    /* Header and support line run one line each on desktop; tighter gaps pull the cards up */
+    .who .section-head { max-width: none; margin-bottom: 56px; }
+    .who .section-headline { max-width: none; margin-bottom: 0; }
+    .who .who-support { max-width: none; margin-top: 12px; }
+
+    /* Gold rule across the top of each card (same trim device as the Field Notes cards) */
+    .who-card { position: relative; overflow: hidden; border-top: 2px solid var(--gold); }
+    .who-card > * { position: relative; z-index: 1; }
+
+    /* Ripple tucked into each card's top-right corner */
+    .rip-cards .who-card::after {
+      content: ''; position: absolute; top: -105px; right: -105px; width: 250px; height: 250px;
+      background: url('/assets/ripple-hero.png') center / cover no-repeat;
+      opacity: 0.30; pointer-events: none; z-index: 0;
+      -webkit-mask-image: radial-gradient(circle at center, #000 25%, transparent 68%);
+              mask-image: radial-gradient(circle at center, #000 25%, transparent 68%);
+    }
+
+
+    /* How I work: header runs one line when there's room, balanced when it wraps (no orphaned "shape.") */
+    .method .section-head { max-width: none; }
+    .method .section-headline { max-width: none; text-wrap: balance; }
+    .method .section-lede { max-width: none; }
+
+    /* How I work: line icons for the four areas, gold to match the band's trim */
+    .method-head { display:flex; align-items:flex-start; gap:14px; font-size: clamp(24px, 2.2vw, 32px); }
+    .method-icon { display:block; flex-shrink:0; width:30px; height:30px; color: var(--gold); margin-top: calc((1.18em - 30px) / 2); }
+    .method-icon svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
+
+    /* How I work: closing line + AI line under the four areas, on the navy band */
+    .method-close {
+      margin-top: 56px; display: grid;
+      grid-template-columns: minmax(280px, 1fr) 1.5fr; gap: 64px;
+    }
+    .method-close .close-line {
+      font-family: var(--serif); font-size: clamp(22px, 2vw, 28px); line-height: 1.35;
+      color: var(--cream); margin: 0;
+    }
+    .method-close .ai-line {
+      color: rgba(247, 242, 232, 0.78); font-size: 17px; line-height: 1.6; margin: 0; max-width: 56ch;
+      padding-top: 6px;
+    }
+    .method-close .ai-line strong { color: var(--gold); font-weight: 600; }
+
+    /* Ways to work: 2 offers (live grid is 3-up) + a body paragraph above the bullets */
+    .engage-list { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .engage-body {
+      font-size: 17px; line-height: 1.6; color: var(--ink-80); margin: 0 0 28px;
+    }
+
+    /* Keep hyphenated compounds whole in display type */
+    .nw { white-space: nowrap; }
+
+
+    .nav-links a { white-space: nowrap; }
+    .lbl-short { display: none; }
+    .hero-headline { text-wrap: balance; font-size: clamp(44px, 5.4vw, 76px); max-width: none; }
+    /* Desktop: always two lines, breaking after "leadership" */
+    @media (min-width: 881px) { .hero-headline .h1-l1 { display: block; } }
+    /* Hero subhead: one sentence per line on desktop; each sentence wraps on its own when narrower */
+    .hero-sub { max-width: 64ch; }
+    .hero-sub .sub-line { display: block; text-wrap: balance; }
+
+    @media (max-width: 520px) {
+      .lbl-full { display: none; }
+      .lbl-short { display: inline; }
+      .nav-links { gap: 16px; }
+      .nav-cta { padding: 9px 14px; }
+      .eb-sep { display: none; }
+      .eb-b { display: block; margin-top: 6px; }
+    }
+
+    @media (max-width: 880px) {
+      .who-grid { grid-template-columns: 1fr; gap: 20px; }
+      .engage-list { grid-template-columns: 1fr; gap: 16px; }
+      .method-close { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+    }
+  </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
     <a href="#top" class="brand" aria-label="Message and Motion home">
-      <img src="assets/logomain_transparent.png" alt="Message &amp; Motion" />
+      <img src="/assets/logomain_transparent.png" alt="Message &amp; Motion" />
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="/#approach">Approach</a>
-      <a href="/#method">Method</a>
-      <a href="/#engage">Engage</a>
-      <a href="/#about">About</a>
+      <a href="#who">Who I help</a>
+      <a href="#method">How I work</a>
+      <a href="#engage">Ways to work</a>
+      <a href="#about">About</a>
       <a href="/field-notes" class="nav-fn">Field Notes</a>
-      <a href="/#contact" class="nav-cta">Contact</a>
+      <a href="#contact" class="nav-cta"><span class="lbl-full">Book an intro call</span><span class="lbl-short">Book a call</span></a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============== HERO ============== -->
+  <!-- ===== MODULE 1 · HERO (ripple unchanged) ===== -->
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">B2B GTM Partner</p>
-      <h1 class="hero-headline">The words that <em>move</em> your GTM.</h1>
-      <p class="hero-sub">We help B2B software companies sharpen their positioning, clarify their story, and activate it across the moments where buyers meet your brand and sales teams need it most.</p>
+      <p class="eyebrow"><span class="eb-text"><span>Fractional CMO &amp; Advisor</span><span class="eb-sep"> &middot; </span><span class="eb-b">B2B Software</span></span></p>
+      <h1 class="hero-headline"><span class="h1-l1">Marketing leadership</span> that <em>moves</em> <span class="nw">your GTM.</span></h1>
+      <p class="hero-sub"><span class="sub-line">I start with your story, then build the <span class="nw">go-to-market</span> engine around it.</span> <span class="sub-line">You get the strategy and <span class="nw">hands-on</span> execution of a CMO with three exits.</span></p>
       <div class="cta-row">
         <a href="mailto:dkarel@messageandmotion.com?subject=Intro%20call%20request" class="btn btn-primary">Book an intro call <span class="arr">&rarr;</span></a>
-        <a href="#contact" class="btn-text">Get a free Messaging Scorecard</a>
+        <a href="#method" class="btn-text">See how I work</a>
       </div>
     </div>
   </section>
 
-  <!-- ============== POV ============== -->
-  <section class="pov" id="approach">
-    <div class="container narrow" data-reveal>
-      <p class="eyebrow">Our point of view</p>
-      <h2 class="section-headline">Most pipeline problems are <em>messaging problems</em> in disguise.</h2>
-      <p class="lede">When the story is unclear, every downstream motion works harder than it should. But when the message is sharp at the source, your website, campaigns, sales conversations, and content all start pulling in the same direction.</p>
+  <!-- ===== MODULE 2 · WHO I WORK WITH ===== -->
+  <section class="who rip-cards" id="who">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <p class="eyebrow">Who I work with</p>
+        <h2 class="section-headline">Most companies that bring me in look something like this.</h2>
+        <p class="who-support">B2B software companies, from <span class="nw">pre-launch</span> startups to established businesses.</p>
+      </header>
+      <div class="who-grid">
+        <article class="who-card" data-reveal data-reveal-delay="1">
+          <h3 class="who-stage">No senior marketing leader yet</h3>
+          <p>There are good athletes on the team, but marketing has never had senior leadership. I&rsquo;m often the first.</p>
+        </article>
+        <article class="who-card" data-reveal data-reveal-delay="2">
+          <h3 class="who-stage">A change at the top</h3>
+          <p>The last marketing leader wasn&rsquo;t the right fit, the company outgrew them, or they moved on. Finding the next one is taking time.</p>
+        </article>
+        <article class="who-card" data-reveal data-reveal-delay="3">
+          <h3 class="who-stage">A big <span class="nw">go-to-market</span> moment</h3>
+          <p>A major launch, a fundraise, a push into new verticals, or a repositioning that needs senior leadership to land well.</p>
+        </article>
+        <article class="who-card" data-reveal data-reveal-delay="4">
+          <h3 class="who-stage">A leader ready for more</h3>
+          <p>A strong marketing director who&rsquo;s growing into a bigger role and would benefit from a senior advisor along the way.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- ============== LOGO STRIP ============== -->
+  <!-- ===== MODULE 3 · CREDIBILITY STRIP (unchanged) ===== -->
   <section class="logos">
     <div class="container">
       <p class="logos-eyebrow" data-reveal>Operator + consulting roles at</p>
       <div class="logo-grid" data-reveal data-reveal-delay="1">
-        <span class="logo"><img src="assets/logos/Linkedin.png" alt="LinkedIn" /></span>
-        <span class="logo"><img src="assets/logos/Clari.png" alt="Clari" /></span>
-        <span class="logo"><img src="assets/logos/Bizo.png" alt="Bizo" /></span>
-        <span class="logo"><img src="assets/logos/Cleargov.png" alt="ClearGov" /></span>
-        <span class="logo"><img src="assets/logos/Crunchtime.png" alt="Crunchtime" /></span>
-        <span class="logo"><img src="assets/logos/Zenput.png" alt="Zenput" /></span>
-        <span class="logo"><img src="assets/logos/SuccessFactors.png" alt="SuccessFactors" /></span>
-        <span class="logo"><img src="assets/logos/Fencer.svg" alt="Fencer" /></span>
-        <span class="logo"><img src="assets/logos/Hackerrank.png" alt="HackerRank" /></span>
-        <span class="logo"><img src="assets/logos/Glint.png" alt="Glint" /></span>
-        <span class="logo"><img src="assets/logos/Plangrid.png" alt="PlanGrid" /></span>
+        <span class="logo"><img src="/assets/logos/Linkedin.png" alt="LinkedIn" /></span>
+        <span class="logo"><img src="/assets/logos/Clari.png" alt="Clari" /></span>
+        <span class="logo"><img src="/assets/logos/Bizo.png" alt="Bizo" /></span>
+        <span class="logo"><img src="/assets/logos/Cleargov.png" alt="ClearGov" /></span>
+        <span class="logo"><img src="/assets/logos/Crunchtime.png" alt="Crunchtime" /></span>
+        <span class="logo"><img src="/assets/logos/Zenput.png" alt="Zenput" /></span>
+        <span class="logo"><img src="/assets/logos/SuccessFactors.png" alt="SuccessFactors" /></span>
+        <span class="logo"><img src="/assets/logos/Fencer.svg" alt="Fencer" /></span>
+        <span class="logo"><img src="/assets/logos/Hackerrank.png" alt="HackerRank" /></span>
+        <span class="logo"><img src="/assets/logos/Glint.png" alt="Glint" /></span>
+        <span class="logo"><img src="/assets/logos/Plangrid.png" alt="PlanGrid" /></span>
+        <span class="logo"><img src="/assets/logos/Inscope.svg" alt="Inscope" /></span>
+        <span class="logo"><img src="/assets/logos/Structured.svg" alt="Structured" /></span>
       </div>
     </div>
   </section>
 
-  <!-- ============== HOW WE HELP ============== -->
-  <section class="how-help">
-    <div class="container narrow" data-reveal>
-      <p class="eyebrow">How we help</p>
-      <h2 class="section-headline">We build your messaging foundation. Then put it <em>in motion</em>.</h2>
-      <p class="lede">Our work starts with the strategic core: ICP, category positioning, narrative, value proposition, differentiation. From there, we extend the message into the assets, campaigns, and sales tools that help teams show up effectively and consistently in market.</p>
-      <p class="lede"><strong>AI is embedded in how we work.</strong> We use AI agents and structured workflows across every phase of the engagement, letting us deliver senior-led depth at the pace you need to move.</p>
-    </div>
-  </section>
-
-  <!-- ============== METHOD ============== -->
+  <!-- ===== MODULE 4 · HOW I WORK ===== -->
   <section class="method" id="method">
     <div class="container">
       <header class="section-head" data-reveal>
-        <p class="eyebrow">What we do</p>
-        <h2 class="section-headline">Here&rsquo;s how we develop and activate your company story.</h2>
-        <p class="section-lede">Most messaging work ends with a deck. Ours doesn&rsquo;t. Each phase builds on the last, so the story stays sharp from blueprint to buyer.</p>
+        <p class="eyebrow">How I work</p>
+        <h2 class="section-headline">Here&rsquo;s how an engagement usually takes shape.</h2>
+        <p class="section-lede">I usually begin with positioning and messaging, then spend my time wherever your team needs it most.</p>
       </header>
       <ol class="method-list">
         <li class="method-row" data-reveal data-reveal-delay="1">
-          <div class="method-meta">
-            <span class="method-num">Phase 01</span>
-            <h3 class="method-title">Category Narrative</h3>
-          </div>
-          <div class="method-desc">
-            <p>A sharp, differentiated narrative on the problems you solve, who you help, and why they choose you. From discovery to a working messaging blueprint in days, not weeks.</p>
-          </div>
+          <div class="method-meta"><span class="method-num">01</span><div class="method-head"><span class="method-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9h8M8 12h5"/></svg></span><h3 class="method-title">Story and foundation</h3></div></div>
+          <div class="method-desc"><p>Positioning, narrative, messaging, and category development, captured in a blueprint your whole team can work from.</p></div>
         </li>
         <li class="method-row" data-reveal data-reveal-delay="2">
-          <div class="method-meta">
-            <span class="method-num">Phase 02</span>
-            <h3 class="method-title">Messaging Activation</h3>
-          </div>
-          <div class="method-desc">
-            <p>Translating the source of truth into the buyer-facing moments that matter most &mdash; website, core collateral, sales narrative, explainer content, and more.</p>
-          </div>
+          <div class="method-meta"><span class="method-num">02</span><div class="method-head"><span class="method-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="19" r="2"/><path d="M7 19h5a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/><path d="M17 2v9M17 3h4l-1.2 2 1.2 2h-4"/></svg></span><h3 class="method-title">Go-to-market plan</h3></div></div>
+          <div class="method-desc"><p>How you&rsquo;ll go to market: the ICP, segments, channels, and a marketing plan that supports the sales number.</p></div>
         </li>
         <li class="method-row" data-reveal data-reveal-delay="3">
-          <div class="method-meta">
-            <span class="method-num">Phase 03</span>
-            <h3 class="method-title">Sales Activation</h3>
-          </div>
-          <div class="method-desc">
-            <p>Putting the narrative in the hands of the sales team. The pitch deck, elevator pitch, SDR outreach, objection handling, and talk tracks that make the story usable.</p>
-          </div>
+          <div class="method-meta"><span class="method-num">03</span><div class="method-head"><span class="method-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l7 4V6l-7 4H3z"/><path d="M16 9.5a3.5 3.5 0 0 1 0 5M18.5 7a7 7 0 0 1 0 10"/></svg></span><h3 class="method-title">Campaigns that support sales</h3></div></div>
+          <div class="method-desc"><p>Integrated campaigns, content, and sales tools that carry the story into market and give sales air cover.</p></div>
         </li>
         <li class="method-row" data-reveal data-reveal-delay="4">
-          <div class="method-meta">
-            <span class="method-num">Phase 04</span>
-            <h3 class="method-title">Demand Activation</h3>
-          </div>
-          <div class="method-desc">
-            <p>A creative concept that carries the message into market, with the campaign asset starter kit needed to bring it to life.</p>
-          </div>
+          <div class="method-meta"><span class="method-num">04</span><div class="method-head"><span class="method-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.6 14.2A5 5 0 0 1 21 19"/></svg></span><h3 class="method-title">Team and engine</h3></div></div>
+          <div class="method-desc"><p>Making sure the team and agencies are set up to keep it all running, including help with hiring.</p></div>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <!-- ============== WHO WE WORK WITH ============== -->
-  <section class="who">
-    <div class="container">
-      <header class="section-head" data-reveal>
-        <p class="eyebrow">Who we work with</p>
-        <h2 class="section-headline">B2B startups and scale-ups, at the moments when the story needs to <em>catch up</em> to the business.</h2>
-      </header>
-      <div class="who-grid">
-        <article class="who-card" data-reveal data-reveal-delay="1">
-          <h3 class="who-stage">Early-stage</h3>
-          <p class="who-range">Seed to Series A</p>
-          <p>Companies building their GTM foundation. The story has often been carried by the founder; we crystalize it, and bring the structure and rigor to make it scalable.</p>
-        </article>
-        <article class="who-card" data-reveal data-reveal-delay="2">
-          <h3 class="who-stage">Scaling</h3>
-          <p class="who-range">Series A to Series C</p>
-          <p>Companies reaching a GTM inflection point. The product has evolved, and you&rsquo;ve learned a lot about the market, but the messaging has not kept pace.</p>
-        </article>
-        <article class="who-card" data-reveal data-reveal-delay="3">
-          <h3 class="who-stage">Strategic Change</h3>
-          <p class="who-range">Any stage</p>
-          <p>Companies navigating a new category play, major repositioning, product expansion, or shift in go-to-market strategy.</p>
-        </article>
+      <div class="method-close" data-reveal>
+        <p class="close-line">All of it is aimed at the numbers you&rsquo;re accountable for: qualified pipeline, shorter sales cycles, and revenue.</p>
+        <p class="ai-line"><strong>AI is embedded in how I work.</strong> I use AI agents and structured workflows across every part of an engagement, so I can deliver senior-led depth at the pace you need to move.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============== ENGAGE ============== -->
+  <!-- ===== MODULE 5 · WAYS TO WORK ===== -->
   <section class="engage" id="engage">
     <div class="container">
       <header class="section-head" data-reveal>
-        <p class="eyebrow">How we engage</p>
-        <h2 class="section-headline">Three ways to work together.</h2>
+        <p class="eyebrow">Ways to work</p>
+        <h2 class="section-headline">Two ways to work together.</h2>
       </header>
       <div class="engage-list">
-
         <article class="engage-row" data-reveal data-reveal-delay="1">
           <div class="engage-meta">
-            <h3 class="engage-title">Project Sprint</h3>
-            <p class="engage-tagline">~12 weeks &middot; Clear deliverables</p>
+            <h3 class="engage-title">Fractional CMO</h3>
+            <p class="engage-tagline">Retained &middot; Strategy and execution</p>
           </div>
           <div class="engage-detail">
+            <p class="engage-body">Part-time and embedded in your leadership team as your marketing lead, flexing from strategy down to frontline execution as needed.</p>
             <ul class="engage-bullets">
-              <li>Messaging discovery</li>
-              <li>Positioning + narrative development</li>
-              <li>Website + content refresh</li>
-              <li>Sales toolkit + enablement</li>
-              <li>Integrated campaign development</li>
-              <li>Product launch support</li>
-              <li>AI adoption playbook development</li>
+              <li>GTM strategy, budget, and the marketing plan</li>
+              <li>Positioning, messaging, and launch narratives</li>
+              <li>Website, sales decks, and collateral</li>
+              <li>Integrated and ABM campaigns that build pipeline</li>
+              <li>Sales enablement and kickoff prep</li>
+              <li>Hiring, coaching, and managing agencies</li>
+              <li>Board and investor narrative</li>
             </ul>
           </div>
         </article>
-
         <article class="engage-row" data-reveal data-reveal-delay="2">
           <div class="engage-meta">
-            <h3 class="engage-title">Fractional CMO</h3>
-            <p class="engage-tagline">Retained, embedded Support</p>
+            <h3 class="engage-title">Advisory</h3>
+            <p class="engage-tagline">Ongoing &middot; Strategic guidance</p>
           </div>
           <div class="engage-detail">
+            <p class="engage-body">A senior advisor for you and your exec team, or for a marketing leader who&rsquo;s stepping into a bigger role.</p>
             <ul class="engage-bullets">
-              <li>Partner with CEO, CRO, and Product on GTM strategy</li>
-              <li>Own marketing strategy</li>
-              <li>Develop marketing plan and drive execution</li>
-              <li>Build repeatable pipeline gen and product launch motions</li>
-              <li>Provide mentorship and support team recruiting</li>
-              <li>Board and sales kickoff prep</li>
+              <li>1:1 strategy calls, weekly or as needed</li>
+              <li>Review of initiatives, plans, data, and campaigns</li>
+              <li>Feedback on GTM strategy, messaging, and content</li>
+              <li>Mentorship for a marketing leader who&rsquo;s stepping up</li>
+              <li>Support on hiring, org design, and planning</li>
+              <li>Async access by email and Slack</li>
             </ul>
           </div>
         </article>
-
-        <article class="engage-row" data-reveal data-reveal-delay="3">
-          <div class="engage-meta">
-            <h3 class="engage-title">CMO Advisory</h3>
-            <p class="engage-tagline">Weekly &middot; Strategic guidance</p>
-          </div>
-          <div class="engage-detail">
-            <ul class="engage-bullets">
-              <li>Weekly 1:1 strategy and advisory call&hellip;whatever is most helpful</li>
-              <li>Review initiatives, plans, data, strategy, and tactics</li>
-              <li>Provide feedback on GTM strategy, POV docs, messaging, and content</li>
-              <li>Support hiring, org design, and GTM planning</li>
-              <li>IC coaching</li>
-              <li>Async access via email and Slack</li>
-            </ul>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ============== ABOUT ============== -->
+  <!-- ===== MODULE 6 · ABOUT ===== -->
   <section class="about" id="about">
     <div class="container" data-reveal>
       <p class="eyebrow">About</p>
       <h2 class="section-headline about-headline">20+ years building categories and repeatable B2B marketing engines.</h2>
       <div class="about-grid">
         <div class="about-photo">
-          <img src="assets/pro_headshot_square_1024.png" alt="David Karel, Founder of Message &amp; Motion" />
-          <div class="about-caption">
-            <span class="about-name">David Karel</span>
-          </div>
+          <img src="/assets/pro_headshot_square_1024.png" alt="David Karel, Founder of Message &amp; Motion" />
+          <div class="about-caption"><span class="about-name">David Karel</span></div>
         </div>
         <div class="about-body">
           <p>I&rsquo;ve spent two decades building categories and repeatable B2B marketing engines across venture-backed and later-stage software companies.</p>
           <p><strong>Three successful exits as CMO.</strong> My experience spans CMO and marketing leadership roles at <strong>LinkedIn, Clari, Bizo, ClearGov, Crunchtime, Zenput, and SuccessFactors</strong>. I&rsquo;ve built teams from first hires to acquisition, and helped scale GTM motions across SMB, mid-market, and enterprise segments.</p>
           <p>The common thread across that work: clear ICP focus, rigorous messaging, customer-centered storytelling, performance discipline, and tight partnership with sales and product.</p>
-          <p>I bring that same operating experience to every client engagement &mdash; helping companies find the right words, build the right foundation, and put the message in motion.</p>
-          <p class="note">When an engagement calls for specialized capacity, I bring in a tight network of trusted operators &mdash; across AI automation, design, video, MOPs, program execution and specific GTM domains.</p>
+          <p>I bring that same operating experience to every client engagement: getting the message right, then putting the <span class="nw">go-to-market</span> engine in motion.</p>
+          <p class="note">When an engagement calls for specialized capacity, I bring in a tight network of trusted operators across AI automation, design, video, MOPs, program execution and specific GTM domains.</p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ============== QUOTES ============== -->
+  <!-- ===== MODULE 7 · PROOF (testimonials verbatim, unchanged) ===== -->
   <section class="quotes">
     <div class="container">
       <header class="section-head" data-reveal>
@@ -269,55 +306,30 @@
         <h2 class="section-headline">From the leaders who hired me.</h2>
       </header>
       <div class="quote-grid">
-
         <figure class="quote-card" data-reveal data-reveal-delay="1">
-          <blockquote>
-            <p>Dave first came in as a consultant, then joined Zenput as CMO. Over 4 years he built out marketing, helped scale our GTM, and established the company as the leader in the category he helped us create &mdash; all the way through acquisition. When I launched Fencer this year, Dave was the first call I made.</p>
-          </blockquote>
-          <figcaption>
-            <span class="quote-name">Vladik Rikhter</span>
-            <span class="quote-role">CEO, Fencer &middot; Former CEO, Zenput</span>
-          </figcaption>
+          <blockquote><p>Dave first came in as a consultant, then joined Zenput as CMO. Over 4 years he built out marketing, helped scale our GTM, and established the company as the leader in the category he helped us create &mdash; all the way through acquisition. When I launched Fencer this year, Dave was the first call I made.</p></blockquote>
+          <figcaption><span class="quote-name">Vladik Rikhter</span><span class="quote-role">CEO, Fencer &middot; Former CEO, Zenput</span></figcaption>
         </figure>
-
         <figure class="quote-card" data-reveal data-reveal-delay="2">
-          <blockquote>
-            <p>I&rsquo;ve worked with Dave at multiple companies, and he is &mdash; without doubt &mdash; the best marketing executive I&rsquo;ve ever worked with. A master at messaging. A prodigy at product marketing. A genius at lead generation. If you get the chance to work with him, don&rsquo;t miss it.</p>
-          </blockquote>
-          <figcaption>
-            <span class="quote-name">Bryan Burdick</span>
-            <span class="quote-role">Co-Founder &amp; Former President, ClearGov</span>
-          </figcaption>
+          <blockquote><p>I&rsquo;ve worked with Dave at multiple companies, and he is &mdash; without doubt &mdash; the best marketing executive I&rsquo;ve ever worked with. A master at messaging. A prodigy at product marketing. A genius at lead generation. If you get the chance to work with him, don&rsquo;t miss it.</p></blockquote>
+          <figcaption><span class="quote-name">Bryan Burdick</span><span class="quote-role">Co-Founder &amp; Former President, ClearGov</span></figcaption>
         </figure>
-
         <figure class="quote-card" data-reveal data-reveal-delay="3">
-          <blockquote>
-            <p>The marketing engine and team Dave built at Bizo was instrumental to the company&rsquo;s success. Having worked with him almost 7 years across Bizo and LinkedIn &mdash; as a marketing leader and practitioner &mdash; he&rsquo;s among the very best.</p>
-          </blockquote>
-          <figcaption>
-            <span class="quote-name">Russell Glass</span>
-            <span class="quote-role">Founder &amp; General Partner, Arteria Capital &middot; Former CEO, Bizo</span>
-          </figcaption>
+          <blockquote><p>The marketing engine and team Dave built at Bizo was instrumental to the company&rsquo;s success. Having worked with him almost 7 years across Bizo and LinkedIn &mdash; as a marketing leader and practitioner &mdash; he&rsquo;s among the very best.</p></blockquote>
+          <figcaption><span class="quote-name">Russell Glass</span><span class="quote-role">Founder &amp; General Partner, Arteria Capital &middot; Former CEO, Bizo</span></figcaption>
         </figure>
-
       </div>
     </div>
   </section>
 
-  <!-- ============== CONTACT ============== -->
+  <!-- ===== MODULE 8 · CONTACT (scorecard offer removed) ===== -->
   <section class="contact" id="contact">
     <div class="container narrow" data-reveal>
       <p class="eyebrow contact-eyebrow">Let&rsquo;s talk</p>
-      <h2 class="section-headline contact-headline">A 30-minute conversation about the current state of your GTM.</h2>
-      <p class="lede">A working conversation about what&rsquo;s working and what&rsquo;s not, and the highest-leverage areas to focus.</p>
-      <div class="contact-offer">
-        <p class="offer-label">Or, request a free</p>
-        <p class="offer-headline">Strategic Messaging Assessment &amp; Scorecard</p>
-        <p class="offer-sub">A scorecard of where your public-facing messaging is strong, where it&rsquo;s slipping, and what to sharpen first. Substantive enough to give you real things to think about. Delivered within a few days &mdash; just send your company name and website. That&rsquo;s it.</p>
-      </div>
+      <h2 class="section-headline contact-headline">A 30-minute conversation about the state of your marketing and your <span class="nw">go-to-market</span> goals.</h2>
+      <p class="lede">A working conversation about what&rsquo;s running, what&rsquo;s missing, and where to start. From there, we can see if there&rsquo;s a fit.</p>
       <div class="cta-row contact-cta">
         <a href="mailto:dkarel@messageandmotion.com?subject=Intro%20call%20request" class="btn btn-primary">Book an intro call <span class="arr">&rarr;</span></a>
-        <a href="mailto:dkarel@messageandmotion.com?subject=Messaging%20Scorecard%20request&body=Hi%20David%2C%0A%0AI%27d%20like%20to%20request%20a%20Strategic%20Messaging%20Assessment%20%26%20Scorecard.%0A%0ACompany%20name%3A%20%0ACompany%20URL%3A%20" class="btn btn-secondary">Request a Messaging Scorecard <span class="arr">&rarr;</span></a>
         <a href="https://www.linkedin.com/in/davidkarel" target="_blank" rel="noopener" class="btn-text" aria-label="Connect with me on LinkedIn">
           <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           Connect with me
@@ -331,50 +343,33 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">Message &amp; Motion</div>
-    <div class="footer-meta">
-      <span>&copy; 2026 Message &amp; Motion</span>
-    </div>
+    <div class="footer-meta"><span>&copy; 2026 Message &amp; Motion</span></div>
   </div>
 </footer>
 
 <script>
 (function() {
-  // Bail if user prefers reduced motion (CSS handles the static fallback)
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in-view'));
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in-view'); });
   } else if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          revealObserver.unobserve(entry.target);
-        }
-      });
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(function(el) { revealObserver.observe(el); });
+    document.querySelectorAll('[data-reveal]').forEach(function(el) { io.observe(el); });
   } else {
-    // Old browsers — show everything
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in-view'));
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in-view'); });
   }
-
-  // Active nav link highlighting
   if ('IntersectionObserver' in window) {
     var sections = document.querySelectorAll('main section[id]');
-    var navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-    var navObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var id = entry.target.id;
-          navLinks.forEach(function(link) {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-          });
-        }
+    var links = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    var no = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id); }); }
       });
     }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach(function(s) { navObserver.observe(s); });
+    sections.forEach(function(s){ no.observe(s); });
   }
 })();
 </script>
-
 </body>
 </html>
